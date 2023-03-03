@@ -14,6 +14,7 @@
 */
 
 const canvas = document.querySelector('.canvas');
+document.querySelector('.create-canvas-button').addEventListener('click', clearCanvas);
 document.querySelector('.create-canvas-button').addEventListener('click', () => createCanvas(20)) // TODO remove 20
 
 
@@ -25,9 +26,10 @@ function changeColor(e) {
 }
 
 function clearCanvas() {
-    let pixels = document.querySelectorAll('.pixel')
-    pixels.forEach(e.remove)
+    let pixels = document.querySelectorAll('.pixel');
+    pixels.forEach(e => e.remove())
 }
+
 function createCanvas(size) {
     canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`
     canvas.style.gridTemplateRows = `repeat(${size}, 1fr)`
