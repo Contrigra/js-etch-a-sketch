@@ -14,22 +14,31 @@
 */
 
 const canvas = document.querySelector('.canvas');
+document.querySelector('.create-canvas-button').addEventListener('click', () => createCanvas(20)) // TODO remove 20
 
-function createCanvas(i = 32) {
-    let canvas = document.querySelector('.canvas');
 
+function changeColor(e) {
+    const randomR = Math.floor(Math.random() * 256)
+    const randomG = Math.floor(Math.random() * 256)
+    const randomB = Math.floor(Math.random() * 256)
+    e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
 }
 
+function clearCanvas() {
+    let pixels = document.querySelectorAll('.pixel')
+    pixels.forEach(e.remove)
+}
+function createCanvas(size) {
+    canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+    canvas.style.gridTemplateRows = `repeat(${size}, 1fr)`
 
-document.querySelector('.create-canvas-button').addEventListener('click', () => createCanvas())
-
-let pixel = document.createElement('div');
-pixel.classList.add('pixel');
-
-for (let i = 0; i < 100; i++) {
-    let pixel = document.createElement('div');
-    pixel.classList.add('pixel');
-    canvas.append(pixel);
+    for (let i = 0; i < size * size; i++) {
+        const pixel = document.createElement('div')
+        pixel.classList.add('pixel')
+        pixel.addEventListener('mouseover', changeColor)
+        pixel.addEventListener('mousedown', changeColor)
+        canvas.appendChild(pixel)
+    }
 }
 
-
+createCanvas(20)

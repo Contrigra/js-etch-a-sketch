@@ -22,25 +22,23 @@ button {
 
 .canvas {
   margin: 16px 96px 16px;
+  display: grid;
   height: 800px;
   width: 800px;
   border: 1px solid #222222;
 
-  /* flex */
-  display: flex;
-  justify-content: start;
-  align-content: stretch;
-  flex-wrap: wrap;
-}
 
-/* TODO сделать так, чтобы пиксели автоматически разрастались и
-    переносились на другую строку */
+  /* flex */
+  /*display: flex;*/
+  /*flex-wrap: wrap;*/
+  /*flex-direction: row;*/
+
+
+}
 
 .pixel {
   box-sizing: border-box;
   background-color: rebeccapurple;
-  flex: 1 1 800px;
-  max-width: 10%;
-
   border: 1px solid #222222;
+  /*flex-basis: 80px;*/
 }
