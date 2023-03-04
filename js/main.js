@@ -1,22 +1,26 @@
-/*
- TODO create 16x16 grid of square divs
-
- TODO Hover effect
- hover effect on divs
- change color of a div with hover (by adding a class + css)
-
- TODO button for a custom grid. Number of squares per side
- limit 100x100 grid. Use prompts
- grid should be of the same total space as before (limit big grid container to 960px)
-
- TODO change color when you hover over it
- Each pass through with the mouse change it to a completely random RPG value. Each pass should add 10% of black to the previous one
-*/
-
 const canvas = document.querySelector('.canvas');
-document.querySelector('.create-canvas-button').addEventListener('click', clearCanvas);
-document.querySelector('.create-canvas-button').addEventListener('click', () => createCanvas(20)) // TODO remove 20
+const button = document.querySelector('.create-canvas-button');
+button.addEventListener('click', changeName, {once: true});
+button.addEventListener('click', clearCanvas);
+button.addEventListener('click', createCanvas);
 
+const checkbox = document.querySelector('#border-options')
+checkbox.addEventListener('click', setBorder)
+
+function setBorder(e) {
+    let checkbox = document.querySelector('#border-options');
+    let pixels = document.querySelectorAll('.pixel');
+    if (checkbox.checked) {
+        pixels.forEach(e => e.style.cssText = 'border: 1px solid black');
+    } else {
+        pixels.forEach(e => e.style.cssText = 'border: none');
+    }
+}
+
+function changeName() {
+    let button = document.querySelector('.create-canvas-button');
+    button.textContent = 'Clear Canvas'
+}
 
 function changeColor(e) {
     const randomR = Math.floor(Math.random() * 256)
@@ -30,7 +34,14 @@ function clearCanvas() {
     pixels.forEach(e => e.remove())
 }
 
-function createCanvas(size) {
+
+function createCanvas() {
+    let size = document.querySelector('input').valueAsNumber;
+
+    if (size > 50) {
+        size = 5
+    }
+
     canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`
     canvas.style.gridTemplateRows = `repeat(${size}, 1fr)`
 
@@ -43,4 +54,4 @@ function createCanvas(size) {
     }
 }
 
-createCanvas(20)
+

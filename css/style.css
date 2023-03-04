@@ -16,8 +16,6 @@ button {
   padding: 8px;
   background-color: transparent;
   margin: 16px 0 0
-
-
 }
 
 .canvas {
@@ -26,19 +24,13 @@ button {
   height: 800px;
   width: 800px;
   border: 1px solid #222222;
-
-
-  /* flex */
-  /*display: flex;*/
-  /*flex-wrap: wrap;*/
-  /*flex-direction: row;*/
-
-
 }
 
+#canvas-size {
+  margin-right: 16px;
+}
 .pixel {
   box-sizing: border-box;
-  background-color: rebeccapurple;
-  border: 1px solid #222222;
-  /*flex-basis: 80px;*/
+  background-color: white;
+  border: 1px solid black;
 }

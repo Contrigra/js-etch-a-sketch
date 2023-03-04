@@ -12,8 +12,13 @@
 </head>
 <body>
 <button class="create-canvas-button">Create canvas</button>
-
-<div class="canvas">
+<div class="options">
+  <label for="canvas-size">Size</label>
+  <input type="number" id="canvas-size" min="2" max="50" placeholder="max 50"
+         value="16"/>
+  <label for="border-options">Border</label>
+  <input type="checkbox" id="border-options" value="border" checked/>
 </div>
+<div class="canvas"></div>
 </body>
 </html>
